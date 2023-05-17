@@ -40,5 +40,5 @@ jobs:
                   add: 'src/index.html'
                   author_name: Jack Bailey
                   author_email: jack@getlynx.dev
-                  message: '[AUTO] Updated version to ${{ env.LYNX_VERSION }}'
+                  message: '[AUTO] Update version from ${{ env.LOCAL_VERSION }} to ${{ env.LYNX_VERSION }}'
                   commit: -S
