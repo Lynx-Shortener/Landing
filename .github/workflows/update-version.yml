@@ -2,7 +2,7 @@ name: "Update Release"
 on:
     workflow_dispatch:
     schedule:
-        - cron: "* * * * *"
+        - cron: "0 * * * *"
     
 jobs:
     update-release:
