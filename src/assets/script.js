@@ -1,5 +1,7 @@
 let dark;
 
+document.documentElement.removeAttribute("nonscript");
+
 setDarkMode = () => {
     dark = !dark;
     
@@ -9,6 +11,21 @@ setDarkMode = () => {
     localStorage.setItem("dark", dark);
 }
 
+getVersion = async () => {
+    const request = await fetch("https://raw.githubusercontent.com/Lynx-Shortener/Lynx/main/VERSION");
+    if (request.status === 200) {
+        let version = await request.text();
+        
+        const matches = version.trim().match(/^[vV]?(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(\-(0|[1-9][0-9]*|[0-9]*[A-Za-z-][0-9A-Za-z-]*)(\.(0|[1-9][0-9]*|[0-9]*[A-Za-z-][0-9A-Za-z-]*))*)?(\+[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*)?$/g);
+        if (matches.length > 0) {
+            version = matches[0];
+            const versionElement = document.getElementById("version");
+            versionElement.innerText = version;
+        }
+    }
+}
+
+getVersion()
 
 if (localStorage.getItem("dark") !== null) {
     dark = localStorage.getItem("dark") === "true";

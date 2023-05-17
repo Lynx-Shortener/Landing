@@ -69,6 +69,31 @@ table {
     --alt-button-text-hover: white;
 }
 
+@media (prefers-color-scheme: dark) {
+    :root[nonscript] {
+        --accent: #3c73e9;
+        --accent-hover: #598af5;
+        --background-1: #272a2f;
+        --background-2: #303439;
+        --background-3: #3a3f46;
+        --accent-color: #3a3f46;
+        --color: white;
+        --alt-button-text-hover: white;
+    }
+
+    :root[nonscript] .section .image .themed-image img.light {
+        opacity: 0;
+    }
+
+    :root[nonscript] .section .image .themed-image img.dark {
+        opacity: 1;
+    }
+}
+
+:root[nonscript] #toggle-dark {
+    display: none;
+}
+
 html, body {
     padding: 0;
     margin: 0;
