@@ -15,6 +15,9 @@
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 
 
 </head>
@@ -23,8 +26,8 @@
 </body>
     <header>
         <div class="title">
-            <img src="./assets/white.svg" alt="">
-            <h1>Lynx</h1>
+            <img src="./assets/logo.svg" alt="">
+            <h1>Lynx <span id="version">1.4.1</spa></h1>
         </div>
         <nav>
             <a href="https://github.com/Lynx-Shortener/Lynx" target="_blank">
@@ -35,10 +38,21 @@
             </a>
         </nav>
     </header>
-    <div class="section">
+    <div class="section" id="main-section">
         <div class="body">
             <h2>The sleek, powerful URL shortener you've been looking for.</h2>
             <p>Lynx is a URL shortener built using the MEVN stack with features such as multi-user support, ShareX integration and 2FA.</p>
+            <div class="buttons">
+                <a href="https://github.com/Lynx-Shortener/Lynx#installation" class="button installation" rel="noopener noreferrer" target="_blank">
+                    <button>Installation</button>
+                </a>
+                <a href="https://demo.getlynx.dev" class="button demo">
+                    <button>Demo</button>
+                </a>
+                <a href="https://github.com/Lynx-Shortener/Lynx" rel="noopener noreferrer"  class="button github">
+                    <button><i class="fa-brands fa-github"></i>&nbsp;&nbsp;Source Code</button>
+                </a>
+            </div>
         </div>
         <div class="image">
             <img src="./assets/screenshots/overview-dark.png" alt="">
