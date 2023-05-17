@@ -9,6 +9,8 @@ jobs:
             contents: write
         steps:
             - uses: actions/checkout@v3
+            - name: switching from HTTPS to SSH
+              run: git remote set-url origin ${{ secrets.ssh }}
             - name: Get Version
               run: |
                 LYNX_VERSION=$(curl -s https://api.github.com/repos/Lynx-Shortener/Lynx/releases/latest | jq -r ".tag_name")
@@ -31,4 +33,3 @@ jobs:
                   author_name: Jack Bailey
                   author_email: jack@getlynx.dev
                   message: '[AUTO] Updated version to ${{ env.LYNX_VERSION }}'
-                  commit: -S
