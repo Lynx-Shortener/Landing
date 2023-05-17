@@ -50,9 +50,9 @@ table {
 :root {
     --accent: #3c73e9;
     --accent-hover: #598af5;
-    --background-1: #202123;
-    --background-2: #333333;
-    --background-3: #383838;
+    --background-1: #272a2f;
+    --background-2: #303439;
+    --background-3: #3a3f46;
 }
 
 body {
