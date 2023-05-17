@@ -69,10 +69,19 @@ table {
     --alt-button-text-hover: white;
 }
 
+html, body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
 body {
     background: var(--background-1);
     font-family: Inter, Arial, sans-serif !important;
     color: var(--color);
+    display: flex;
+    flex-direction: column;
 }
 
 :root header nav #toggle-dark {
@@ -125,6 +134,12 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--background-1);
+    box-sizing: border-box;
 }
 
 header .title {
@@ -174,8 +189,8 @@ header nav a i {
 .section .body {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    gap: 1.5rem;
+    justify-content: center;
+    gap: 2.5rem;
 }
 
 .section .body h2 {
@@ -237,41 +252,86 @@ header nav a i {
     position: relative;
 }
 
+.section .image .themed-image img {
+    border-radius: 5px;
+}
+
 .section .image .themed-image img.dark {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    clip-path: inset(0 100% 0 0);
+    opacity: 0;
 }
 
 .section .image .themed-image img.light {
-    clip-path: inset(0 0 0 0);
+    opacity: 1;
 }
 
 :root.dark .image .themed-image img.dark {
-    clip-path: inset(0 0 0 0);
+    opacity: 1;
 }
 
 :root.dark .section .image .themed-image img.light {
-    clip-path: inset(0 0 0 100%);
+    opacity: 0;
 }
 
 .section .image img {
     width: 100%;
 }
 
+.section#main-section {
+    flex-grow: 1;
+}
+
 .section#main-section .image {
-    overflow: hidden;
-    border-radius: 5px;
     display: grid;
     place-content: center;
 }
 
 @media screen and (min-width: 1200px) {
-    header, .section {
+    header {
+        padding-inline: 10%;
+        width: 100%;
+    }
+    .section {
         width: 80%;
         margin-inline: auto;
     }    
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        padding: 1rem 1rem;
+    }
+
+    .section {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .section#main-section {
+        margin-top: 5rem;
+    }
+
+    .section .body h2 {
+        font-size: 2rem;
+    }
+
+    .section .body p {
+        font-size: 1rem;
+    }
+
+    .section .body .buttons {
+        flex-wrap: wrap;
+    }
+
+    .section .body .button button {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+
+    header .title img {
+        width: 2rem;
+    }
 }

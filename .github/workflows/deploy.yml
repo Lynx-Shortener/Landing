@@ -1,0 +1,25 @@
+name: Build Docker Image - Production
+
+on:
+    push:
+        branches: ["main"]
+        paths-ignore: ["**.md"]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v3
+            - name: Deploy to BunnyCDN
+              uses: ayeressian/bunnycdn-storage-deploy@v=2.0.0
+              with:
+                  source: "dist"
+                  storageZoneName: "${{ secrets.STORAGE_NAME }}"
+                  storagePassword: "${{ secrets.STORAGE_PASSWORD }}"
+                  accessKey: "${{ secrets.STORAGE_KEY }}"
+                  pullZoneId: "${{ secrets.ZONE_ID }}"
+                  upload: "true"
+                  remove: "true"
+                  purge: "true"
+            
