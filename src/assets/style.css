@@ -50,17 +50,70 @@ table {
 :root {
     --accent: #3c73e9;
     --accent-hover: #598af5;
+    --background-1: #F1F3F4;
+    --background-2: #C5CAD6;
+    --background-3: #6D7894;
+    --color: #2B303C;
+    --alt-button-text-hover: #F1F3F4;
+}
+
+:root.dark {
+    --accent: #3c73e9;
+    --accent-hover: #598af5;
     --background-1: #272a2f;
     --background-2: #303439;
     --background-3: #3a3f46;
+    --color: white;
+    --alt-button-text-hover: white;
 }
 
 body {
     background: var(--background-1);
     font-family: Inter, Arial, sans-serif !important;
-    color: white;
+    color: var(--color);
+    transition: all 300ms ease-in-out;
 }
 
+:root header nav #toggle-dark {
+    position: relative;
+
+}
+
+:root header nav #toggle-dark .dark-mode-icon,
+:root header nav #toggle-dark .light-mode-icon {
+    transition: 300ms ease-in-out;
+}
+
+:root header nav #toggle-dark .light-mode-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(10px);
+    opacity: 0;
+}
+
+:root.dark header nav #toggle-dark .dark-mode-icon {
+    transform: translateY(10px) rotate(45deg);
+    opacity: 0;
+}
+
+:root.dark header nav #toggle-dark .light-mode-icon {
+    transform: translateY(0px) rotate(-90deg);
+    opacity: 1;
+}
+
+:root.dark header nav #toggle-dark {
+    @keyframes enabledark {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(180deg);
+        }
+    }
+    
+    animation: enabledark 2s linear infinite;
+}
 
 header {
     padding: 1rem 2rem;
@@ -101,7 +154,7 @@ header nav a {
 }
 
 header nav a i {
-    color: white;
+    color: var(--color);
     font-size: 1.5rem;
 }
 
@@ -148,9 +201,8 @@ header nav a i {
     font-size: 1.1rem;
     border: 2px solid var(--background-2);
     background-color: transparent;
-    color: white;
+    color: var(--color);
     cursor: pointer;
-    transition: 250ms ease-in-out;
     text-transform: uppercase;
     font-weight: 300;
 }
@@ -161,9 +213,10 @@ header nav a i {
     color: var(--background-1);
 }
 
-.section .body .button button:hover {
+.section .body .button:not(.installation) button:hover {
     background-color: var(--background-3);
     border-color: var(--background-3);
+    color: var(--alt-button-text-hover);
 }
 .section .body .button.installation button:hover {
     background-color: var(--accent-hover);
