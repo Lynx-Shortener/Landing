@@ -1,4 +1,4 @@
-name: "Release"
+name: "Create Release"
 on:
     pull_request:
         types:
@@ -7,8 +7,8 @@ on:
             - "main"
 
 jobs:
-    Tag:
-        name: Set tag to current version
+    tag:
+        name: Create Release
         runs-on: ubuntu-latest
         if: github.event.pull_request.merged == true
         steps:

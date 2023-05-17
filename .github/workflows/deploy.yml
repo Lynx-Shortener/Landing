@@ -1,4 +1,4 @@
-name: Build Docker Image - Production
+name: Deploy to BunnyCDN
 
 on:
     push:
@@ -6,7 +6,7 @@ on:
         paths-ignore: ["**.md"]
 
 jobs:
-    build:
+    deploy:
         runs-on: ubuntu-latest
 
         steps:
