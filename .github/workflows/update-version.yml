@@ -1,0 +1,34 @@
+name: "Update Release"
+on:
+    workflow_dispatch:
+    
+jobs:
+    update-release:
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+        steps:
+            - uses: actions/checkout@v3
+            - name: Get Version
+              run: |
+                LYNX_VERSION=$(curl -s https://api.github.com/repos/Lynx-Shortener/Lynx/releases/latest | jq -r ".tag_name")
+                echo "LYNX_VERSION=$LYNX_VERSION" >> $GITHUB_ENV
+
+                LOCAL_VERSION=$(grep -o '<span id="version">.*</span>' src/index.html | cut -d '>' -f 2 | cut -d '<' -f1)
+                echo "LOCAL_VERSION=$LOCAL_VERSION" >> $GITHUB_ENV
+            - name: Replace Version in Header
+              if: env.LYNX_VERSION != env.LOCAL_VERSION
+              run: |
+                sed -i -r 's|<span id="version">[0-9]+(\.[0-9]\.[0-9]+)*</span>|<span id="version">${{ env.LYNX_VERSION }}</span>|g' src/index.html
+            - uses: webfactory/ssh-agent@v0.7.0
+              if: env.LYNX_VERSION != env.LOCAL_VERSION
+              with:
+                  ssh-private-key: ${{ env.SSH_PRIVATE_KEY }}
+            - uses: EndBug/add-and-commit@v9 # You can change this to use a specific version.
+              if: env.LYNX_VERSION != env.LOCAL_VERSION
+              with:
+                  add: 'src/index.html'
+                  author_name: Jack Bailey
+                  author_email: jack@getlynx.dev
+                  message: '[AUTO] Updated version to ${{ env.LYNX_VERSION }}'
+                  commit: -S
