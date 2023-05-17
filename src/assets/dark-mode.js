@@ -25,6 +25,7 @@ toggle.addEventListener("click", setDarkMode);
 // Don't smoothly animate on first pageload
 setTimeout(() => {
     document.body.style.transition = "all 300ms ease-in-out";
+    document.getElementById("header").style.transition = "background-color 300ms ease-in-out";
     Array.from(document.getElementsByClassName("themed-image-img")).forEach((el) => el.style.transition = "300ms ease-in-out");
     Array.from(document.getElementsByClassName("toggle-dark-icon")).forEach((el) => el.style.transition = "300ms ease-in-out");
 }, 300);
