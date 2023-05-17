@@ -84,16 +84,20 @@ body {
     transition: 300ms ease-in-out;
 }
 
-:root header nav #toggle-dark .light-mode-icon {
+:root header nav #toggle-dark .dark-mode-icon {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+:root header nav #toggle-dark .light-mode-icon {
     transform: translateY(10px);
     opacity: 0;
 }
 
 :root.dark header nav #toggle-dark .dark-mode-icon {
-    transform: translateY(10px) rotate(45deg);
+    transform: rotate(45deg) translate(-50%, calc(-50% + 10px));
     opacity: 0;
 }
 
