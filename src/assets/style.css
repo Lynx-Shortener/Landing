@@ -55,6 +55,7 @@ table {
     --background-3: #6D7894;
     --color: #2B303C;
     --alt-button-text-hover: #F1F3F4;
+    --accent-color: white;
 }
 
 :root.dark {
@@ -63,6 +64,7 @@ table {
     --background-1: #272a2f;
     --background-2: #303439;
     --background-3: #3a3f46;
+    --accent-color: #3a3f46;
     --color: white;
     --alt-button-text-hover: white;
 }
@@ -71,7 +73,6 @@ body {
     background: var(--background-1);
     font-family: Inter, Arial, sans-serif !important;
     color: var(--color);
-    transition: all 300ms ease-in-out;
 }
 
 :root header nav #toggle-dark {
@@ -81,7 +82,7 @@ body {
 
 :root header nav #toggle-dark .dark-mode-icon,
 :root header nav #toggle-dark .light-mode-icon {
-    transition: 300ms ease-in-out;
+    cursor: pointer;
 }
 
 :root header nav #toggle-dark .dark-mode-icon {
@@ -214,7 +215,8 @@ header nav a i {
 .section .body .button.installation button {
     background-color: var(--accent);
     border-color: var(--accent);
-    color: var(--background-1);
+    color: white;
+    transition: 300ms ease-in-out;
 }
 
 .section .body .button:not(.installation) button:hover {
@@ -231,12 +233,40 @@ header nav a i {
     width: 100%;
 }
 
+.section .themed-image {
+    position: relative;
+}
+
+.section .image .themed-image img.dark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: inset(0 100% 0 0);
+}
+
+.section .image .themed-image img.light {
+    clip-path: inset(0 0 0 0);
+}
+
+:root.dark .image .themed-image img.dark {
+    clip-path: inset(0 0 0 0);
+}
+
+:root.dark .section .image .themed-image img.light {
+    clip-path: inset(0 0 0 100%);
+}
+
 .section .image img {
     width: 100%;
 }
 
-.section#main-section .image img {
+.section#main-section .image {
+    overflow: hidden;
     border-radius: 5px;
+    display: grid;
+    place-content: center;
 }
 
 @media screen and (min-width: 1200px) {

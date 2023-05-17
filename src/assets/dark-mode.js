@@ -5,6 +5,8 @@ setDarkMode = () => {
     
     if (dark) document.documentElement.classList.add("dark");
     else document.documentElement.classList.remove("dark");
+
+    localStorage.setItem("dark", dark);
 }
 
 
@@ -19,3 +21,10 @@ else document.documentElement.classList.remove("dark");
 
 const toggle = document.getElementById("toggle-dark");
 toggle.addEventListener("click", setDarkMode);
+
+// Don't smoothly animate on first pageload
+setTimeout(() => {
+    document.body.style.transition = "all 300ms ease-in-out";
+    Array.from(document.getElementsByClassName("themed-image-img")).forEach((el) => el.style.transition = "300ms ease-in-out");
+    Array.from(document.getElementsByClassName("toggle-dark-icon")).forEach((el) => el.style.transition = "300ms ease-in-out");
+}, 300);
