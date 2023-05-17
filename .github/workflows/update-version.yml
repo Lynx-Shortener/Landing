@@ -26,6 +26,12 @@ jobs:
               if: env.LYNX_VERSION != env.LOCAL_VERSION
               with:
                   ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+            - name: Import GPG key
+              uses: crazy-max/ghaction-import-gpg@v5
+              if: env.LYNX_VERSION != env.LOCAL_VERSION
+              with:
+                  gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+                  passphrase: ${{ secrets.GPG_PASSPHRASE }}
             - uses: EndBug/add-and-commit@v9 # You can change this to use a specific version.
               if: env.LYNX_VERSION != env.LOCAL_VERSION
               with:
@@ -33,3 +39,4 @@ jobs:
                   author_name: Jack Bailey
                   author_email: jack@getlynx.dev
                   message: '[AUTO] Updated version to ${{ env.LYNX_VERSION }}'
+                  commit: -S
