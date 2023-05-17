@@ -9,7 +9,7 @@
 
 ## [1.0.1] - 2023-05-17
 
-- pBunnyCDN:
+- BunnyCDN:
   - Purge pull zone correctly
   - Copy over correct folder src
 - bump script:
@@ -23,3 +23,4 @@
   - Set first section to be full-page
   - Mobile support
   - Fixed header
+
