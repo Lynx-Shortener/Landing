@@ -6,6 +6,7 @@
 - Fix body tags
 - Implement basic dark mode functionality when javascript disabled.
   - Also has the benefit of setting dark-styles before JS has fully loaded, reducing flashbang effect.
+- Add tracking script on deployment
 
 ## [1.0.1] - 2023-05-17
 
@@ -23,4 +24,3 @@
   - Set first section to be full-page
   - Mobile support
   - Fixed header
-
