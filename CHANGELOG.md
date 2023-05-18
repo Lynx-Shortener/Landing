@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.1.3] - 2023-05-18
+
+- Remove cron schedule for update-version.yml
+
 ## [1.1.2] - 2023-05-18
 
 - Fix typo in deploy.yml
