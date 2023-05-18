@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.1.4] - 2023-05-18
+
+- Remove retrieving of version via API
+
 ## [1.1.3] - 2023-05-18
 
 - Remove cron schedule for update-version.yml
