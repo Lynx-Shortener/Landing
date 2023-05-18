@@ -1,6 +1,10 @@
 name: "Update Release"
 on:
     workflow_dispatch:
+      inputs:
+        lynx_version:
+          type: string
+          description: Lynx Version
     schedule:
         - cron: "0 * * * *"
     
@@ -13,10 +17,9 @@ jobs:
             - uses: actions/checkout@v3
             - name: switching from HTTPS to SSH
               run: git remote set-url origin git@github.com:Lynx-Shortener/Website.git
-            - name: Get Version
+            - name: Get Local Version
               run: |
-                LYNX_VERSION=$(curl -s https://api.github.com/repos/Lynx-Shortener/Lynx/releases/latest | jq -r ".tag_name")
-                echo "LYNX_VERSION=$LYNX_VERSION" >> $GITHUB_ENV
+                echo "LYNX_VERSION=${{ github.event.inputs.lynx_version }}" >> $GITHUB_ENV
 
                 LOCAL_VERSION=$(grep -o '<span id="version">.*</span>' src/index.html | cut -d '>' -f 2 | cut -d '<' -f1)
                 echo "LOCAL_VERSION=$LOCAL_VERSION" >> $GITHUB_ENV
