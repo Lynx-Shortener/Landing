@@ -19,7 +19,8 @@ jobs:
               run: git remote set-url origin git@github.com:Lynx-Shortener/Website.git
             - name: Get Local Version
               run: |
-                echo "LYNX_VERSION=${{ github.event.inputs.lynx_version }}" >> $GITHUB_ENV
+                LYNX_VERSION="${{ github.event.inputs.lynx_version }}"
+                echo "LYNX_VERSION=$LYNX_VERSION" >> $GITHUB_ENV
 
                 LOCAL_VERSION=$(grep -o '<span id="version">.*</span>' src/index.html | cut -d '>' -f 2 | cut -d '<' -f1)
                 echo "LOCAL_VERSION=$LOCAL_VERSION" >> $GITHUB_ENV
