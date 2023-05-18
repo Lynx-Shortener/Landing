@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.1.2] - 2023-05-18
+
+- Fix typo in deploy.yml
+
 ## [1.1.1] - 2023-05-18
 
 - Fix semver scripts
