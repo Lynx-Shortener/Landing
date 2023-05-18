@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.1.1] - 2023-05-18
+
+- Fix semver scripts
+- Add tracking script on deployment
+
 ## [1.1.0] - 2023-05-17
 
 - Update GitHub action names
@@ -23,4 +28,3 @@
   - Set first section to be full-page
   - Mobile support
   - Fixed header
-

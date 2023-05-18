@@ -1,4 +1,4 @@
-name: Deploy to BunnyCDN
+hname: Deploy to BunnyCDN
 
 on:
     push:
@@ -11,6 +11,13 @@ jobs:
 
         steps:
             - uses: actions/checkout@v3
+            - name: Add tracking script
+              uses: jacobtomlinson/gha-find-replace@v3
+              with:
+                find: "</head>"
+                replace: <script async src="https://analytics.jackbailey.dev/script.js" data-website-id="b7f60d8a-26ef-41c1-8311-becfc0b038f5"></script></head>
+                regex: false
+                include: "src/index.html"
             - name: Deploy to BunnyCDN
               uses: ayeressian/bunnycdn-storage-deploy@v2.0.0
               with:

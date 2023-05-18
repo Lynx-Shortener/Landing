@@ -26,8 +26,12 @@ jobs:
                 echo "LOCAL_VERSION=$LOCAL_VERSION" >> $GITHUB_ENV
             - name: Replace Version in Header
               if: env.LYNX_VERSION != env.LOCAL_VERSION
-              run: |
-                sed -i -r 's|<span id="version">[0-9]+(\.[0-9]\.[0-9]+)*</span>|<span id="version">${{ env.LYNX_VERSION }}</span>|g' src/index.html
+              uses: jacobtomlinson/gha-find-replace@v3
+              with:
+                find: "${{ env.LOCAL_VERSION }}"
+                replace: "${{ env.LYNX_VERSION }}"
+                regex: true
+                include: "src/index.html"
             - uses: webfactory/ssh-agent@v0.7.0
               if: env.LYNX_VERSION != env.LOCAL_VERSION
               with:
