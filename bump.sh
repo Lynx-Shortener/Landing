@@ -3,6 +3,8 @@
 VERSION=$(cat VERSION | sed 's/[[:alpha:]|(|[:space:]]//g')
 DATE=$(date +"%Y-%m-%d")
 
+chmod u+x ./dev/semver
+
 VERSION=$(./dev/semver bump $1 "$VERSION")
 
 # Update CHANGELOG

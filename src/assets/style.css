@@ -183,6 +183,10 @@ header .title h1 {
     font-weight: 700;
 }
 
+header .title h1 .version-link {
+    text-decoration: none;
+}
+
 header .title h1 #version {
     font-size: 1rem;
     color: var(--accent);
@@ -231,6 +235,7 @@ header nav a i {
 
 .section .body .buttons {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
 }
 
@@ -239,6 +244,7 @@ header nav a i {
 }
 
 .section .body .button button {
+    height: 100%;
     font-family: inherit;
     border: none;
     padding: 0.75rem 1.5rem;
@@ -324,6 +330,13 @@ header nav a i {
     }    
 }
 
+@media screen and (max-width: 1200px) {
+    .section .body .button button {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+}
+
 @media screen and (max-width: 768px) {
     header {
         padding: 1rem 1rem;
@@ -344,15 +357,6 @@ header nav a i {
     }
 
     .section .body p {
-        font-size: 1rem;
-    }
-
-    .section .body .buttons {
-        flex-wrap: wrap;
-    }
-
-    .section .body .button button {
-        padding: 0.5rem 1rem;
         font-size: 1rem;
     }
 
