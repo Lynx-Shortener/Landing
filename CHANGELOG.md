@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.1.5] - 2023-05-19
+
+- Add link on version header to changelog
+
 ## [1.1.4] - 2023-05-18
 
 - Remove retrieving of version via API
@@ -40,3 +44,4 @@
   - Set first section to be full-page
   - Mobile support
   - Fixed header
+
