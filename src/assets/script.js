@@ -29,4 +29,5 @@ setTimeout(() => {
     document.getElementById("header").style.transition = "background-color 300ms ease-in-out";
     Array.from(document.getElementsByClassName("themed-image-img")).forEach((el) => el.style.transition = "300ms ease-in-out");
     Array.from(document.getElementsByClassName("toggle-dark-icon")).forEach((el) => el.style.transition = "300ms ease-in-out");
+    Array.from(document.getElementsByTagName("button")).forEach((el) => el.style.transition = "300ms ease-in-out");
 }, 300);
