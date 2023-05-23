@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.1.6] - 2023-05-23
+
+- Fix flash of white on buttons when changing theme
+
 ## [1.1.5] - 2023-05-19
 
 - Add link on version header to changelog
