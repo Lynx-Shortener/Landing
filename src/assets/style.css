@@ -215,6 +215,19 @@ header nav a i {
     gap: 5rem;
 }
 
+.section.center {
+    text-align: center;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.section.invalid-page .body {
+    height: 100%;
+}
+
 .section .body {
     display: flex;
     flex-direction: column;
@@ -237,6 +250,11 @@ header nav a i {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+}
+
+.section.invalid-page .body .buttons {
+    flex-direction: column;
+    align-items: center;
 }
 
 .section .body .button {

@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.3.0] - 2023-05-26
+
+- Add 404 Page
+
 ## [1.2.1] - 2023-05-26
 
 - Set meta tag colours
