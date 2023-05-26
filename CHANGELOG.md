@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.3.1] - 2023-05-26
+
+- Add documentation
+
 ## [1.3.0] - 2023-05-26
 
 - Add 404 Page
@@ -61,4 +65,3 @@
   - Set first section to be full-page
   - Mobile support
   - Fixed header
-
