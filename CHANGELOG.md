@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.2.0] - 2023-05-26
+
+- Add meta tags
+
 ## [1.1.6] - 2023-05-23
 
 - Fix flash of white on buttons when changing theme
