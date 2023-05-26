@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.2.1] - 2023-05-26
+
+- Set meta tag colours
+
 ## [1.2.0] - 2023-05-26
 
 - Add meta tags
