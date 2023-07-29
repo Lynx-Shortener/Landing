@@ -19,7 +19,7 @@ jobs:
                 regex: false
                 include: "src/index.html"
             - name: Deploy to BunnyCDN
-              uses: ayeressian/bunnycdn-storage-deploy@v2.0.0
+              uses: ayeressian/bunnycdn-storage-deploy@v2.1.0
               with:
                   source: "src"
                   storageZoneName: "${{ secrets.STORAGE_NAME }}"
@@ -27,5 +27,5 @@ jobs:
                   accessKey: "${{ secrets.STORAGE_KEY }}"
                   pullZoneId: "${{ secrets.ZONE_ID }}"
                   remove: "true"
-                  purge: "true"
+                  purgePullZone: "true"
             
