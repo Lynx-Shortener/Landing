@@ -18,15 +18,12 @@ jobs:
                 replace: <script async src="https://analytics.jackbailey.dev/script.js" data-website-id="b7f60d8a-26ef-41c1-8311-becfc0b038f5"></script></head>
                 regex: false
                 include: "src/index.html"
-            - name: Deploy to BunnyCDN
-              uses: ayeressian/bunnycdn-storage-deploy@v2.1.0
+            - name: Publish to Cloudflare Pages
+              uses: cloudflare/pages-action@v1
               with:
-                  source: "src"
-                  storageZoneName: "${{ secrets.STORAGE_NAME }}"
-                  storagePassword: "${{ secrets.STORAGE_PASSWORD }}"
-                  accessKey: "${{ secrets.STORAGE_KEY }}"
-                  pullZoneId: "${{ secrets.ZONE_ID }}"
-                  remove: "true"
-                  purgePullZone: "true"
-                  upload: "true"
+                apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+                accountId: ${{ secrets.CLOUDFLARE_ACCOUNT }}
+                projectName: lynx-web
+                directory: src
+                wranglerVersion: '3'
             
